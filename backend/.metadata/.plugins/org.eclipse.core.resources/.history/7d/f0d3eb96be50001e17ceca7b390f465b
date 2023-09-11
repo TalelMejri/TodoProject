@@ -1,0 +1,5 @@
+package ap.todo.entity;
+
+public class Todo {
+ int id;
+}
