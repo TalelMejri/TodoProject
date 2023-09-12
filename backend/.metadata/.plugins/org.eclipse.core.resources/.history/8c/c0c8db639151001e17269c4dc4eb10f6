@@ -1,0 +1,6 @@
+package app.todo.payload;
+
+public class todopayload {
+ String name;
+ String description;
+}

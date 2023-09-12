@@ -1,0 +1,18 @@
+package app.todo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import antlr.collections.List;
+import app.todo.Reposiory.TodoRepo;
+
+@Service
+public class TodoService {
+ 
+	@Autowired
+	TodoRepo todorep;
+	
+	public List<Todo> getTodo(){
+		
+	}
+}

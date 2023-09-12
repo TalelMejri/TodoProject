@@ -1,0 +1,14 @@
+package app.todo.controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+public class TodoController {
+ 
+	
+	public ResponseEntity<?> getTodos(){
+		List<Todo>
+		return ResponseEntity.ok().body(body)
+	}
+}

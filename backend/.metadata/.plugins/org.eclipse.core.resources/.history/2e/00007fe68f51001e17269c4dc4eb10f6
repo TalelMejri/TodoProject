@@ -1,0 +1,9 @@
+package app.todo.Reposiory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import app.todo.entity.Todo;
+
+public interface TodoRepo extends JpaRepository<Todo, Integer> {
+	
+}

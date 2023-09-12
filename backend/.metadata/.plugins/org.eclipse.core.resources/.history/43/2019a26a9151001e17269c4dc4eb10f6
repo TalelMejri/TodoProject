@@ -1,0 +1,9 @@
+package app.todo.payload;
+
+import java.time.LocalDate;
+
+public class todopayload {
+ String name;
+ String description;
+ LocalDate due_date;
+}

@@ -1,0 +1,28 @@
+package app.todo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import app.todo.Reposiory.TodoRepo;
+import app.todo.entity.Todo;
+
+@Service
+public class TodoService {
+ 
+	@Autowired
+	TodoRepo todorep;
+	
+	public List<Todo>  getTodo(){
+	     return todorep.findAll();
+	}
+	
+	public void DeleteTodo(int id) {
+		@SuppressWarnings({ "deprecation", "unused" })
+		Todo todo=todorep.getById(id);
+		
+		
+	}
+}

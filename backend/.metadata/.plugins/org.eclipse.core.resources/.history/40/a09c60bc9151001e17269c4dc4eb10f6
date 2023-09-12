@@ -1,0 +1,42 @@
+package app.todo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import app.todo.Reposiory.TodoRepo;
+import app.todo.entity.Todo;
+import app.todo.payload.todopayload;
+
+@Service
+public class TodoService {
+ 
+	@Autowired
+	TodoRepo todorep;
+	
+	public List<Todo>  getTodo(){
+	     return todorep.findAll();
+	}
+	
+	public void DeleteTodo(int id) throws Exception {
+		Todo todo=todorep.GetTodo(id);
+		if(todo != null) {
+			todorep.delete(todo);
+		}else {
+			 throw new Exception("Todo Not Found");
+		}
+	}
+	
+	public void AddTodoServ(todopayload todo)throws Exception {
+		if(todorep.GetNameTodo(todo.getName()) != null) {
+			 throw new Exception("Todo Already Exist");
+		}else {
+			Todo todo_new=new Todo();
+			
+			todorep.save(todo);
+		}
+	}
+	
+}

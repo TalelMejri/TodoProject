@@ -1,0 +1,19 @@
+package app.todo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+import app.todo.service.TodoService;
+
+public class TodoController {
+ 
+	@Autowired
+	TodoService TodoServ;
+	
+	public ResponseEntity<?> getTodos(){
+		List<Todo> todos=TodoServ.getTodo();
+		return ResponseEntity.ok().body(body)
+	}
+}

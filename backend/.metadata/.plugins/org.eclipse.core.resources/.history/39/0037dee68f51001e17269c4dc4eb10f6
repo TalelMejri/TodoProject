@@ -1,0 +1,10 @@
+package app.todo.Reposiory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import app.todo.entity.Todo;
+
+public interface TodoRepo extends JpaRepository<Todo, Integer> {
+	@Query(value = "Select * from todo where id=? ")
+}
