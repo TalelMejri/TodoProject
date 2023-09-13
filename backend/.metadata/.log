@@ -454,3 +454,24 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 12:10:45.351
 !MESSAGE executing callback sts4.classpath.omxutiUo SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2023-09-13 13:09:17.879
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.032
+!MESSAGE Preparing classpath changed notification Todos
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.033
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.039
+!MESSAGE classpath=110 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.043
+!MESSAGE buffering callback sts4.classpath.omxutiUo Todos false 110
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.044
+!MESSAGE executing callback sts4.classpath.omxutiUo 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-13 13:09:26.226
+!MESSAGE executing callback sts4.classpath.omxutiUo SUCCESS [done]

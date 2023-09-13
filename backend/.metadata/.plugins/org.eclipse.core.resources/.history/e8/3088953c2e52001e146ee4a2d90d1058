@@ -20,7 +20,7 @@ import app.todo.entity.Todo;
 import app.todo.payload.todopayload;
 import app.todo.service.TodoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RequestMapping("Todo")
 @RestController
 public class TodoController {
