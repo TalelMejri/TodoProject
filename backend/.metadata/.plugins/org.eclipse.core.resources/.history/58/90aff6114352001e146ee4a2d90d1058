@@ -39,8 +39,8 @@ public class TodoController {
 	
 	@GetMapping("getTodo")
 	public ResponseEntity<?> getTodo(@RequestParam("id") int id){
-		Todo todo=Todorepo.GetTodo(id);
-		return ResponseEntity.ok().body(todo);
+		List<Todo> todos=TodoServ.getTodo();
+		return ResponseEntity.ok().body(todos);
 	}
 	
 	@DeleteMapping("DeleteTodo")

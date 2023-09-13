@@ -1,1 +1,35 @@
-<p>update-todo works!</p>
+<div class="d-flex p-3 mt-5 m-4 justify-content-center">   
+    <div class="col-xl-10 ">
+          <div class="row shadow-lg rounded">
+                <div class="col-lg-6">
+                    <form  (ngSubmit)="UpdateTodo()">
+                        <h4 class="text-center mt-2 py-2">Update Todo</h4>
+                        <div>
+                            <mat-form-field class="example-full-width w-100">
+                                <mat-label>Name</mat-label>
+                                <input matInput [(ngModel)]="todo.name" name="name">
+                            </mat-form-field>
+                        </div>
+                       <div>
+                        <mat-form-field class="example-full-width w-100">
+                            <mat-label>Description</mat-label>
+                            <input matInput  [(ngModel)]="todo.description" name="description">
+                          </mat-form-field>
+                       </div>
+                       <div>
+                          <mat-form-field class="example-full-width w-100">
+                             <mat-label>Description</mat-label>
+                             <input matInput type="date" [(ngModel)]="todo.due_Date" name="due_Date">
+                          </mat-form-field>
+                       </div>
+                       <button class="btn btn-warning" type="submit">
+                              Update
+                       </button>
+                    </form>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="../../../assets/todoImage.png" width="100%" height="100%" alt="">
+                </div>
+        </div>
+    </div>
+</div>

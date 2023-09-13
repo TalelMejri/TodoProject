@@ -19,7 +19,7 @@
                     <button mat-button color="warn">
                         <mat-icon (click)="deleteTodo(item.id)" >delete</mat-icon>
                     </button>
-                    <button mat-button color="primary" [disabled]="item.isdone">
+                    <button mat-button color="primary" [routerLink]="['update/'+item.id]"   [disabled]="item.isdone">
                         <mat-icon  >edit</mat-icon>
                     </button>
                 </td>

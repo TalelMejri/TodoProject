@@ -39,7 +39,7 @@ public class TodoController {
 	
 	@GetMapping("getTodo")
 	public ResponseEntity<?> getTodo(@RequestParam("id") int id){
-		Todo todo=Todorepo.GetTodo(id);
+		Todo todo=Todorepo.getById(id);
 		return ResponseEntity.ok().body(todo);
 	}
 	

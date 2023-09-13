@@ -1,12 +1,12 @@
 export class Todo{
-    
-    constructor(
-        public _id:String,
-        public name:String,
-        public description:String,
-        public isdone:boolean,
-        public due_Date:any
-    ){
-
+    name:String;
+    description:String;
+    isdone:boolean;
+    due_Date:any;
+    constructor(){
+        this.name="";
+        this.description="";
+        this.isdone=false;
+        this.due_Date=new Date();
     }
 }
