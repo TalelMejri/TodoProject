@@ -1,1 +1,26 @@
-<p>todo works!</p>
+<div class="container">
+    <h1 class="text-center py-5">Todo</h1>
+    <div class="d-flex justify-content-center gap-5 mb-5">
+      <button mat-fab color="accent" (click)="isCard=false">
+        <mat-icon>list</mat-icon>
+      </button>
+      <button mat-fab color="accent" (click)="isCard=true">
+        <mat-icon>dashboard</mat-icon>
+      </button>
+    </div>
+    <div >
+      <div *ngIf="isCard;else list">
+      <div class="row text-center">
+        <div class="col-lg-4" *ngFor="let item of todos">
+              <app-card-todo [item]="item"></app-card-todo>
+        </div>
+      </div>
+      </div>
+      <ng-template #list>
+          <app-list-todo [todos]="todos"></app-list-todo>
+     </ng-template>
+    </div>
+  </div>
+  
+  
+  

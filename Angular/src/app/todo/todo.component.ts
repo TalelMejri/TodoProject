@@ -12,14 +12,14 @@ export class TodoComponent {
   constructor(private todoServ:TodoServiceService){
       this.getTodo();
   }
-  todo:any=[];
+  todos:any=[];
+
+  isCard:boolean=false;
 
   getTodo(){
     this.todoServ.getTodo().subscribe((res:any)=>{
-      console.log(res);
-      this.todo=res;
+      this.todos=res;
     },(error)=>{
-
     })
   }
 

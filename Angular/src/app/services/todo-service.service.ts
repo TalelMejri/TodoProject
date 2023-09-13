@@ -11,4 +11,8 @@ export class TodoServiceService {
   getTodo(){
     return this._hhtp.get(`${environment.apiUrl}Todo/GetTodos`);
   }
+
+  ChangerStatus(id:number){
+    return this._hhtp.put(`${environment.apiUrl}Todo/updateStatus?id=`+id,null);
+  }
 }
