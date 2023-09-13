@@ -26,6 +26,8 @@ ngOnInit(): void {
 UpdateTodo(){
   this.TodoServiceService.UpdatetTodoFn(this.todo,this.id).subscribe((res)=>{
     this.Router.navigate(['']);
+  },(error)=>{
+    this.Router.navigate(['']);
   })
 }
 }
