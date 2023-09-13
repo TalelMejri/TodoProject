@@ -1,6 +1,9 @@
 <div class="container">
     <h1 class="text-center py-5">Todo</h1>
     <div class="d-flex justify-content-center gap-5 mb-5">
+      <button mat-fab color="accent" [routerLink]="['Add']">
+        <mat-icon>add</mat-icon>
+        </button>
       <button mat-fab color="accent" (click)="isCard=false">
         <mat-icon>list</mat-icon>
       </button>

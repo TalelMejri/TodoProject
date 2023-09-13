@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {environment} from "../../environements/env"
+import { Todo } from '../Model/todo';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +18,9 @@ export class TodoServiceService {
   }
   DeleteTodo(id:number){
     return this._hhtp.delete(`${environment.apiUrl}Todo/DeleteTodo?id=`+id);
+  }
+
+  AddTodoFn(todo:any){
+    return this._hhtp.post(`${environment.apiUrl}Todo/AddTodo`,todo);
   }
 }

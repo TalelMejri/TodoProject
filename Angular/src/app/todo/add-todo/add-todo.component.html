@@ -1,0 +1,44 @@
+<div class="d-flex p-3 mt-5 m-4 justify-content-center">   
+    <div class="col-xl-10 ">
+          <div class="row shadow-lg rounded">
+                <div class="col-lg-6">
+                    <form [formGroup]="todoFrom" (ngSubmit)="AddForm()">
+                        <h4 class="text-center mt-2 py-2">Add Todo</h4>
+                        <div>
+                            <mat-form-field class="example-full-width w-100">
+                                <mat-label>Name</mat-label>
+                                <input matInput [formControl]="nameRegister">
+                                <mat-error *ngIf="nameRegister.invalid">
+                                    Required
+                                 </mat-error>
+                            </mat-form-field>
+                        </div>
+                       <div>
+                        <mat-form-field class="example-full-width w-100">
+                            <mat-label>Description</mat-label>
+                            <input matInput [formControl]="descriptionRegister">
+                            <mat-error *ngIf="descriptionRegister.invalid">
+                                Required
+                             </mat-error>
+                          </mat-form-field>
+                       </div>
+                       <div>
+                          <mat-form-field class="example-full-width w-100">
+                             <mat-label>Description</mat-label>
+                             <input matInput type="date"  [formControl]="due_DateRegister">
+                             <mat-error *ngIf="due_DateRegister.invalid">
+                                Required
+                             </mat-error>
+                          </mat-form-field>
+                       </div>
+                       <button class="btn btn-success" type="submit">
+                              Add
+                       </button>
+                    </form>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="../../../assets/todoImage.png" width="100%" height="100%" alt="">
+                </div>
+        </div>
+    </div>
+</div>

@@ -8,13 +8,18 @@ import { MaterialModule } from './material/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ListTodoComponent } from './todo/list-todo/list-todo.component';
 import { CardTodoComponent } from './todo/card-todo/card-todo.component'
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
+import { AddTodoComponent } from './todo/add-todo/add-todo.component';
+import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     ListTodoComponent,
-    CardTodoComponent
+    CardTodoComponent,
+    AddTodoComponent,
+    UpdateTodoComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,8 @@ import { FormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
