@@ -15,4 +15,7 @@ export class TodoServiceService {
   ChangerStatus(id:number){
     return this._hhtp.put(`${environment.apiUrl}Todo/updateStatus?id=`+id,null);
   }
+  DeleteTodo(id:number){
+    return this._hhtp.delete(`${environment.apiUrl}Todo/DeleteTodo?id=`+id);
+  }
 }

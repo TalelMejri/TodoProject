@@ -8,7 +8,7 @@
             <th>Due_Date</th>
             <th>Operation</th>
         </thead>
-        <tbody>
+        <tbody *ngIf="todos!='';else empty">
             <tr *ngFor="let item of todos">
                 <td> <mat-checkbox (click)="changeStatus(item.id)" [(ngModel)]="item.isdone"  class="example-margin"></mat-checkbox></td>
                 <td [class]="item.isdone ? 'text-decoration-line-through' : ''" >{{item.id}}</td>
@@ -17,7 +17,7 @@
                 <td [class]="item.isdone ? 'text-decoration-line-through' : ''">{{item.due_Date | date: 'dd/MM/yyyy'}}</td>
                 <td >
                     <button mat-button color="warn">
-                        <mat-icon >delete</mat-icon>
+                        <mat-icon (click)="deleteTodo(item.id)" >delete</mat-icon>
                     </button>
                     <button mat-button color="primary" [disabled]="item.isdone">
                         <mat-icon  >edit</mat-icon>
@@ -25,6 +25,15 @@
                 </td>
             </tr>
         </tbody>
+        <ng-template #empty>
+            <tbody>
+                <tr>
+                    <td colspan="6" class="text-center">No Todo</td>
+                </tr>
+            </tbody>
+        </ng-template>
+        
+       
        
     </table>
 </div>
