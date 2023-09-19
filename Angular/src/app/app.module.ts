@@ -12,6 +12,8 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { AddTodoComponent } from './todo/add-todo/add-todo.component';
 import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
 import { LayoutComponent } from './layout/layout.component';
+import { LoginCompComponent } from './Auth/login-comp/login-comp.component';
+import { SignUpComppComponent } from './Auth/sign-up-compp/sign-up-compp.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LayoutComponent } from './layout/layout.component';
     CardTodoComponent,
     AddTodoComponent,
     UpdateTodoComponent,
-    LayoutComponent
+    LayoutComponent,
+    LoginCompComponent,
+    SignUpComppComponent
   ],
   imports: [
     BrowserModule,

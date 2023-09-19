@@ -3,8 +3,8 @@
         <h2  style="font-size: 35px;color: white;margin-top: 10%;" data-aos="fade-up" >Make Your Todo List</h2>
         <br>
         <div class="d-flex justify-content-center gap-5">
-            <button mat-raised-button color="primary" data-aos="fade-down">Login</button>
-            <button mat-raised-button color="accent" data-aos="fade-down">Create an Account</button>
+            <button [routerLink]="['/login']"   mat-raised-button color="primary" data-aos="fade-down">Login</button>
+            <button [routerLink]="['/signup']" mat-raised-button color="accent" data-aos="fade-down">Create an Account</button>
         </div>
     </div>
 </div>

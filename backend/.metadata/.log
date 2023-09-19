@@ -645,3 +645,90 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 14:45:08.048
 !MESSAGE executing callback sts4.classpath.RBfgxoFO SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2023-09-19 15:28:54.424
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:42.274
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.RBfgxoFO
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:42.275
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.RBfgxoFO
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:42.275
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:42.276
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.RBfgxoFO => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:52.475
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:52.475
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@55f54852[org.springframework.tooling.boot.ls:1.15.0.202001210741(id=632)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:52.475
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.580
+!MESSAGE Boot LS startup time from start to initialized: 1105ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PgQrSNVSisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE subscribing to classpath changes: sts4.classpath.PgQrSNVS isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE subsribers = {sts4.classpath.PgQrSNVS=Send Classpath Notifications(482)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE project Todos ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE Preparing classpath changed notification Todos
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PgQrSNVS => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.596
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.604
+!MESSAGE classpath=110 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.604
+!MESSAGE buffering callback sts4.classpath.PgQrSNVS Todos false 110
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.604
+!MESSAGE executing callback sts4.classpath.PgQrSNVS 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:34:53.614
+!MESSAGE executing callback sts4.classpath.PgQrSNVS SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.911
+!MESSAGE Preparing classpath changed notification Todos
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.912
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.916
+!MESSAGE classpath=117 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.919
+!MESSAGE buffering callback sts4.classpath.PgQrSNVS Todos false 117
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.920
+!MESSAGE executing callback sts4.classpath.PgQrSNVS 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-09-19 15:41:40.926
+!MESSAGE executing callback sts4.classpath.PgQrSNVS SUCCESS [done]

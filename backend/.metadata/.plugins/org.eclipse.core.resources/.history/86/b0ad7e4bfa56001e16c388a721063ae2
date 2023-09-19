@@ -1,0 +1,5 @@
+package app.todo.payload;
+
+public interface UserRepo {
+
+}
