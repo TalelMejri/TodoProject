@@ -1,0 +1,19 @@
+package app.todo.SpringSecurity;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+
+public class UserDetailsServiceImpl implements UserDetailsService {
+		
+	@Autowired
+	app.todo.Reposiory.UserRepo Userrepo;
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

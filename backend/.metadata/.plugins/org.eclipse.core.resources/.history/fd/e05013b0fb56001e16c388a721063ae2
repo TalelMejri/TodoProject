@@ -1,0 +1,5 @@
+package app.todo.SpringSecurity;
+
+public class UserDetailsServiceImpl {
+
+}
