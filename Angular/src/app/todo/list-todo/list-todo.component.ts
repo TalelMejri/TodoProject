@@ -24,11 +24,10 @@ export class ListTodoComponent {
  }
 
  deleteTodo(id:number){
-      this.todoServ.DeleteTodo(id).subscribe((res) => {
+      this.todoServ.DeleteTodo(id).subscribe((res:any) => {
         this.MatSnackBar.open("Status Changed", 'close', {
           duration: 3000
         });
       });
-      location.reload();
     }
 }

@@ -21,8 +21,8 @@ export class AddTodoComponent {
 
    todoFrom:FormGroup;
 
-   nameRegister=new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(7)]);
-   descriptionRegister=new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(7)]);
+   nameRegister=new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(7)]);
+   descriptionRegister=new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(12)]);
    due_DateRegister=new FormControl('',[Validators.required]);
   
   AddForm(){

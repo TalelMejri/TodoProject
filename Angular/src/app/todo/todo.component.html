@@ -14,7 +14,7 @@
     <div >
       <div *ngIf="isCard;else list">
       <div class="row text-center">
-        <div *ngIf="todos!='';else empty">
+        <div *ngIf="todos!='';else empty" class="row">
           <div class="col-lg-4" *ngFor="let item of todos">
             <app-card-todo [item]="item"></app-card-todo>
           </div>
@@ -24,8 +24,6 @@
             No Todos
           </p>
         </ng-template>
-        
-       
       </div>
       </div>
       <ng-template #list>

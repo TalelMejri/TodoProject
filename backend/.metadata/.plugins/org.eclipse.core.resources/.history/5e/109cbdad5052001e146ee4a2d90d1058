@@ -31,7 +31,6 @@ public class TodoController {
 	
 	@Autowired
 	TodoRepo Todorepo;
-	
 	@GetMapping("GetTodos")
 	public ResponseEntity<?> getTodos(){
 		List<Todo> todos=TodoServ.getTodo();
@@ -84,6 +83,4 @@ public class TodoController {
 			return new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
 		}
 	}
-	
-	
 }
