@@ -1,0 +1,13 @@
+package app.todo.payload;
+
+import lombok.AllAr
+import lombok.NoArgsConstructor;gsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuhPayload {
+ String email;
+ String password;
+}

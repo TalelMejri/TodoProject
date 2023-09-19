@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	UserDetailsService usetdet;
+
 	
 	
 	public PasswordEncoder passwordEncoder() {
@@ -68,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) {
 		try {
 				http.cors().and().csrf().disable().authorizeRequests().
-					 antMatchers("/auth/**").permitAll().
+					 antMatchers("/Auth/**").permitAll().
 					 anyRequest().authenticated();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());

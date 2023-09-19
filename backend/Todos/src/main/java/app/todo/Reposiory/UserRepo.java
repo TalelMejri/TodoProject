@@ -10,4 +10,7 @@ import app.todo.entity.User;
 public interface UserRepo  extends JpaRepository<User,Integer>{
 	@Query(value = "Select * from user where email=:email",nativeQuery = true)
 	Optional<User> findByEmail(String email);
+	
+	@Query(value="select * from user where email=:email",nativeQuery=true)
+	User getUserByemail(String email);
 }
