@@ -11,6 +11,7 @@ import { CardTodoComponent } from './todo/card-todo/card-todo.component'
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { AddTodoComponent } from './todo/add-todo/add-todo.component';
 import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
     ListTodoComponent,
     CardTodoComponent,
     AddTodoComponent,
-    UpdateTodoComponent
+    UpdateTodoComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
