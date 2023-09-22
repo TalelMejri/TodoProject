@@ -1,8 +1,0 @@
-package app.todo.entity;
-
-import javax.persistence.Entity;
-
-@Entity
-public class Todo {
- int id;
-}
