@@ -92,17 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), 
-    bottomNavigationBar: CurvedNavigationBar(
-    backgroundColor: Colors.blueAccent,
-    items: <Widget>[
-      Icon(Icons.add, size: 30),
-      Icon(Icons.list, size: 30),
-      Icon(Icons.compare_arrows, size: 30),
-    ],
-    onTap: (index) {
-      //Handle button tap
-    },
-    )
+
     );
   }
 }
