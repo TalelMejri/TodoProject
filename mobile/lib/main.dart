@@ -32,16 +32,33 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   late TodoService todoService=TodoService();
-  late List<Todo> ? todos=null;
+    List<Todo> todos=[];
  @override
   void initState() {
-    todoService.getTodos();
-    super.initState();
+     super.initState();
+    fetchTodos(); 
+  }
+
+   Future<void> fetchTodos() async {
+    await todoService.getTodos();
+    setState(() {
+      todos = todoService.todos; 
+    });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+           body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          final todo = todos[index];
+          return ListTile(
+            title: Text(todo.name),
+            subtitle: Text(todo.description),
+            // Add more widgets to display todo details as needed
+          );
+        },
+      ),
     );
   }
 }

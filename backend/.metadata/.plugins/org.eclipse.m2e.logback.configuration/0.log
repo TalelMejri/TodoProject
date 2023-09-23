@@ -3610,3 +3610,11 @@ org.apache.maven.project.ProjectBuildingException: Some problems were encountere
 2023-09-22 16:50:07,834 [Worker-26: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-09-22 16:50:07,834 [Worker-26: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-09-22 16:50:07,834 [Worker-26: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\talel\Desktop\TodoProject\backend\Todos\src\test\resources
+2023-09-23 13:13:43,796 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-09-23 13:16:01,511 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-09-23 13:16:01,513 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-09-23 13:16:01,518 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-09-23 13:16:01,546 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-09-23 13:16:01,550 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-09-23 13:16:01,551 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-09-23 13:16:01,551 [Worker-2: Launching Todos - TodosApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\talel\Desktop\TodoProject\backend\Todos\src\test\resources
