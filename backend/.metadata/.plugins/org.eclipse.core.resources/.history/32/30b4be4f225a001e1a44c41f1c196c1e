@@ -33,14 +33,14 @@ public class TodoController {
 	TodoRepo Todorepo;
 	
 	@GetMapping("GetTodos")
-	public ResponseEntity<?> getTodos(@RequestParam(name="search",defaultValue = "") String search){
-		List<Todo> todos=null;
-		if(!search.isEmpty()) {
-			todos=Todorepo.findByName(search);
+	public ResponseEntity<?> getTodos(@RequestParam("search") String search){
+		List<Todo> todos=[];
+		if(search!=null) {
+			
 		}else {
-			todos=TodoServ.getTodo();
+			
 		}
-		
+		todos=TodoServ.getTodo();
 		return ResponseEntity.ok().body(todos);
 	}
 	

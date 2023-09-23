@@ -7,9 +7,9 @@ class TodoService  {
     List<Todo> todos=[];
 
   String url="http://10.0.2.2:8000/Todo";
- Future<List<Todo>> getTodos() async {
+ Future<List<Todo>> getTodos(String search) async {
   try {
-    final response = await http.get(Uri.parse('$url/GetTodos'));
+    final response = await http.get(Uri.parse('$url/GetTodos?${search.isNotEmpty ? 'search='+search : ''}'));
     if (response.statusCode == 200) {
         final  jsonData = jsonDecode(response.body);
         /* for (var item in jsonData) {

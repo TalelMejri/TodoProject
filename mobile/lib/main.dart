@@ -82,7 +82,7 @@ void updatedTodo(){
   print("update");
 }
    Future<void> fetchTodos() async {
-     await todoService.getTodos();
+     await todoService.getTodos(search);
      setState(() {
        todos = todoService.todos; 
      });
@@ -113,6 +113,7 @@ void updatedTodo(){
               setState(() {
                   search=val;
               });
+              fetchTodos();
             } ,
            decoration:const InputDecoration(
            prefixIcon: Icon(

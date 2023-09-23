@@ -35,7 +35,7 @@ public class TodoController {
 	@GetMapping("GetTodos")
 	public ResponseEntity<?> getTodos(@RequestParam(name="search",defaultValue = "") String search){
 		List<Todo> todos=null;
-		if(!search.isEmpty()) {
+		if(search.isEmpty()) {
 			todos=Todorepo.findByName(search);
 		}else {
 			todos=TodoServ.getTodo();

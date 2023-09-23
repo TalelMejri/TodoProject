@@ -19,7 +19,7 @@ public interface TodoRepo extends JpaRepository<Todo, Integer> {
 	Todo GetNameTodo(String name);
 	
 	
-	List<Todo> findByName(String name);
+	List<Todo> findByName()
 	
 
 }
