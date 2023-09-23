@@ -6,13 +6,15 @@ class tododiTem extends StatelessWidget {
   final deleteTodo;
   final updatedTodo;
   final check;
+  final InfoTodo;
 
   const tododiTem({
     Key? key,
     required this.todo,
     required this.deleteTodo,
     required this.updatedTodo,
-    required this.check
+    required this.check,
+    required this.InfoTodo
   }) : super(key: key);
 
   @override
@@ -59,6 +61,7 @@ class tododiTem extends StatelessWidget {
                   Container(
                      height: 35,
                     width: 35,
+                       margin: const EdgeInsets.only(right: 18),
                     decoration: BoxDecoration(
                        borderRadius: BorderRadius.circular(5),
                        color: Colors.red
@@ -67,7 +70,21 @@ class tododiTem extends StatelessWidget {
                         color: Colors.white,
                         iconSize: 20,
                         icon:const Icon(Icons.delete),
-                        onPressed: (){deleteTodo();},
+                        onPressed: (){deleteTodo(todo.id);},
+                      ),
+                   ),
+                    Container(
+                     height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(5),
+                       color: Colors.blue
+                    ),
+                      child: IconButton(
+                        color: Colors.white,
+                        iconSize: 20,
+                        icon:const Icon(Icons.info),
+                        onPressed: (){InfoTodo(todo);},
                       ),
                    ),
                 ],

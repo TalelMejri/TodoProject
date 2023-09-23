@@ -43,13 +43,39 @@ class _MyHomePageState extends State<MyHomePage> {
      fetchTodos(); 
   }
 
-void deleteTodo(){
-  print("dlete");
+Future<void> deleteTodo(int id)async{
+  String ? res=await showDialog(context: context, builder:(context){
+    return AlertDialog(
+      title: const  Text("Confirm Delete"),
+      content: const Text("Do You Wanna Delete Todo"),
+      actions: [
+        Row(
+          children: [
+            ElevatedButton(onPressed: (){Navigator.of(context).pop();}, child:const Text("Cancel")),
+            ElevatedButton(onPressed: (){Navigator.of(context).pop("delete");}, child:const Text("Delete")),
+          ],
+        )
+      ],
+    );
+  });
+
+  if(res=="delete"){
+    try{
+      todoService.deleteTodo(id);
+    }catch(e){
+      print(e);
+    }
+  }
+  fetchTodos();
 }
 
 void check(int id)async{
   await todoService.UpdatedSatatus(id);
   fetchTodos();
+}
+
+void InfoTodo(Todo todo){
+  print(todo);
 }
 
 void updatedTodo(){
@@ -101,10 +127,10 @@ void updatedTodo(){
         ),
         const SizedBox(height: 20),
         Expanded(child: 
-          ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
+            todos.isNotEmpty ?    ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
               final todo=todos[index];
-              return tododiTem(todo: todo,deleteTodo: deleteTodo,updatedTodo: updatedTodo,check:check,);
-          })
+              return tododiTem(todo: todo,deleteTodo: deleteTodo,updatedTodo: updatedTodo,check:check,InfoTodo:InfoTodo);
+          }) :  const Text("No Todos",style: TextStyle(fontSize: 20),)
         )
       ],)
       ),

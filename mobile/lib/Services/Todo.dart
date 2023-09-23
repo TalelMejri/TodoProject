@@ -38,6 +38,18 @@ Future<void> UpdatedSatatus(int id)async {
   }catch(e){
     print(e);
   }
- 
+}
+
+Future<void> deleteTodo(int id) async{
+  try{
+    final response=await http.delete(Uri.parse('$url/DeleteTodo?id='+id.toString()));
+    if(response.statusCode==200){
+      print("statchange");
+    }else{
+      print(response.body);
+    }
+  }catch(e){
+    print(e);
+  }
 }
 }
