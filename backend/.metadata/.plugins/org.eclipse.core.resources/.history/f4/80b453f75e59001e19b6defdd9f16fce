@@ -32,6 +32,9 @@ public class Todo  {
 	 private boolean isdone;
 	 
 	 private LocalDate due_Date;
-	
+	 
+	 @ManyToOne
+	 @JoinColumn(name="UserId")
+	 private User user;
 	 
 }

@@ -26,8 +26,7 @@ public class User {
 	 @Column(length = 9999999)
 	 String ImageProfile;
 	 
-	 @OneToMany(mappedBy = "user")
-	 private Collection<Todo> todos;
+	
 	 
 	 
 }
