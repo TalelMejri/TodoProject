@@ -1,19 +1,23 @@
 class Todo{
 
-  String? id;
+  int id;
   String name;
   String description;
   bool isdone;
   DateTime due_Date;
 
    Todo(
-      {required this.name,
+      {
+      required this.id,
+      required this.name,
       required this.description,
       required this.due_Date,
       required this.isdone
       });
+      
       factory Todo.fromJson(Map<String,dynamic> json){
         return Todo(
+          id: json['id'], 
           description: json['description'],
           name: json['name'],
           due_Date: DateTime.parse(json['due_Date']),
