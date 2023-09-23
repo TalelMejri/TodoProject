@@ -26,7 +26,7 @@ class tododiTem extends StatelessWidget {
             children: [
               IconButton(
                 icon:todo.isdone ?const  Icon(Icons.check_box) : const Icon(Icons.check_box_outline_blank),
-                onPressed: (){check();},
+                onPressed: (){check(todo.id);},
                 color: Colors.blue,
               ),
               Expanded(

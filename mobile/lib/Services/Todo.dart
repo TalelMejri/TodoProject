@@ -25,4 +25,19 @@ class TodoService  {
     return [];
   }
 }
+
+
+Future<void> UpdatedSatatus(int id)async {
+  try{
+    final response =  await http.put(Uri.parse('$url/updateStatus?id='+id.toString()));
+    if(response.statusCode==200){
+      print("statusChange");
+    }else{
+      print(response.body);
+    }
+  }catch(e){
+    print(e);
+  }
+ 
+}
 }

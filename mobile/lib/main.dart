@@ -47,8 +47,9 @@ void deleteTodo(){
   print("dlete");
 }
 
-void check(){
-  print("cgeck");
+void check(int id)async{
+  await todoService.UpdatedSatatus(id);
+  fetchTodos();
 }
 
 void updatedTodo(){
@@ -98,7 +99,7 @@ void updatedTodo(){
         ),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Expanded(child: 
           ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
               final todo=todos[index];
