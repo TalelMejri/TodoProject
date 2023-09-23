@@ -1,13 +1,13 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:mobile/Model/Todo.dart';
 import 'package:http/http.dart' as http;
 class TodoService  {
-    List<Todo> todos=[];
 
-  String url="http://10.0.2.2:8000/Todo";
- Future<List<Todo>> getTodos(String search) async {
+     List<Todo> todos=[];
+
+     String url="http://10.0.2.2:8000/Todo";
+
+     Future<List<Todo>> getTodos(String search) async {
   try {
     final response = await http.get(Uri.parse('$url/GetTodos?${search.isNotEmpty ? 'search='+search : ''}'));
     if (response.statusCode == 200) {
@@ -26,8 +26,7 @@ class TodoService  {
   }
 }
 
-
-Future<void> UpdatedSatatus(int id)async {
+     Future<void> UpdatedSatatus(int id)async {
   try{
     final response =  await http.put(Uri.parse('$url/updateStatus?id='+id.toString()));
     if(response.statusCode==200){
@@ -40,7 +39,7 @@ Future<void> UpdatedSatatus(int id)async {
   }
 }
 
-Future<void> deleteTodo(int id) async{
+     Future<void> deleteTodo(int id) async{
   try{
     final response=await http.delete(Uri.parse('$url/DeleteTodo?id='+id.toString()));
     if(response.statusCode==200){
@@ -52,4 +51,5 @@ Future<void> deleteTodo(int id) async{
     print(e);
   }
 }
+
 }
