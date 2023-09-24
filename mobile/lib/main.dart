@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile/Model/Todo.dart';
+import 'package:mobile/Screens/AddTodo.dart';
 import 'package:mobile/Screens/todoItem.dart';
 import 'Services/Todo.dart';
 void main() {
@@ -92,7 +93,14 @@ void updatedTodo(){
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:const Color(0xFFEEEFF5),
-      floatingActionButton: FloatingActionButton(onPressed: (){},backgroundColor: Colors.blue,child:const Icon(Icons.add,color: Colors.white,)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => AddTodo()), 
+          );
+  },
+        backgroundColor: Colors.blue,child:const Icon(Icons.add,color: Colors.white,)),
       floatingActionButtonLocation:FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(title:const Center(child: Text("Todos App"),) ,backgroundColor:const Color(0xFFEEEFF5),elevation: 5,),
       body:Container(
