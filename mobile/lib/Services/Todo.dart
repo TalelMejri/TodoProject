@@ -7,7 +7,7 @@ class TodoService  {
 
      String url="http://10.0.2.2:8000/Todo";
 
-     Future<List<Todo>> getTodos(String search) async {
+  Future<List<Todo>> getTodos(String search) async {
   try {
     final response = await http.get(Uri.parse('$url/GetTodos?${search.isNotEmpty ? 'search='+search : ''}'));
     if (response.statusCode == 200) {
@@ -59,13 +59,29 @@ Future<void> AddTodo(request)async{
       headers: {'Content-Type': 'application/json'}
    );
    if(response.statusCode==200){
-      print("hdhdh");
+      print("done");
    }else{
     print(response.body);
    }
   }catch(e){
     print(e);
   }
+}
+
+Future<void> UpdateTodo(request,id)async{
+    try{
+      final response=await http.put(Uri.parse('$url/UpdateTodo?id='+id.toString()),
+      body: jsonEncode(request),
+      headers:{'Content-Type':'application/json'}
+    );
+      if(response.statusCode==200){
+      print("done");
+   }else{
+    print(response.body);
+   }
+    }catch(e){
+      print(e);
+    }
 }
 
 }

@@ -7,6 +7,7 @@ class tododiTem extends StatelessWidget {
   final updatedTodo;
   final check;
   final InfoTodo;
+  final ScreenUpdate;
 
   const tododiTem({
     Key? key,
@@ -14,7 +15,8 @@ class tododiTem extends StatelessWidget {
     required this.deleteTodo,
     required this.updatedTodo,
     required this.check,
-    required this.InfoTodo
+    required this.InfoTodo,
+    required this.ScreenUpdate
   }) : super(key: key);
 
   @override
@@ -54,7 +56,8 @@ class tododiTem extends StatelessWidget {
                     color: Colors.white,
                     iconSize: 20,
                     onPressed: () { 
-                      updatedTodo();
+                     
+                     ScreenUpdate(todo);
                     },
                   ),
                 ),

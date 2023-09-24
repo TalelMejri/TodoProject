@@ -36,15 +36,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>   {
 
-
     late TodoService todoService=TodoService();
     List<Todo> todos=[];
     String search="";
+    
   @override
   void initState() {
      super.initState();
-     
-
      fetchTodos(); 
   }
 
@@ -98,12 +96,25 @@ void updatedTodo(){
    Future<void> SceerenAded()async{
      String ? res= await Navigator.push(
                 context,
-                MaterialPageRoute(builder: (BuildContext context) => AddTodo()), 
+                MaterialPageRoute(builder: (BuildContext context) => AddTodo(IsUpdated: false,)), 
           );
           if(res=="test"){
             await fetchTodos();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text("TodoAdded"))
+            );
+          }
+   }
+
+   Future<void> ScreenUpdate(Todo todo)async{
+     String ? res= await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => AddTodo(IsUpdated: true,todo: todo,)), 
+          );
+          if(res=="test"){
+            await fetchTodos();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("Todo Updated"))
             );
           }
    }
@@ -152,9 +163,9 @@ void updatedTodo(){
         ),
         const SizedBox(height: 20),
         Expanded( child: 
-            todos.isNotEmpty ?    ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
+            todos.isNotEmpty ? ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
               final todo=todos[index];
-              return tododiTem(todo: todo,deleteTodo: deleteTodo,updatedTodo: updatedTodo,check:check,InfoTodo:InfoTodo);
+              return tododiTem(todo: todo,deleteTodo: deleteTodo,updatedTodo: updatedTodo,check:check,InfoTodo:InfoTodo,ScreenUpdate:ScreenUpdate);
           }) :  const Text("No Todos",style: TextStyle(fontSize: 20),)
         )
       ],)

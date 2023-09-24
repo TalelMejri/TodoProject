@@ -2,11 +2,13 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mobile/Model/Todo.dart';
 import 'package:mobile/Services/Todo.dart';
 
 class AddTodo extends StatefulWidget{
-   const AddTodo({super.key});
-
+   AddTodo({super.key,required this.IsUpdated,this.todo});
+   Todo ? todo;
+   bool IsUpdated; 
    @override
    State<AddTodo> createState()=>_AddTodo();
 }
@@ -26,7 +28,7 @@ class _AddTodo extends State<AddTodo>{
   Future<void> ShowDateTime()async{
     DateTime ? datepicker=await showDatePicker(
       context: context,
-       initialDate: DateTime.now(), 
+       initialDate:date==null ?  DateTime.now() : date,
        firstDate: DateTime(1900), 
        lastDate: DateTime(2030)
       ); 
@@ -38,11 +40,30 @@ class _AddTodo extends State<AddTodo>{
     }
   }
 
+  @override
+  void initState() {
+    super.initState();
+    if(widget.IsUpdated){
+      setState(() {
+        Name=widget.todo!.name;
+        Description=widget.todo!.description;
+        date=widget.todo!.due_Date;
+      });
+    }
+  }
+
   void AddTodoFnction()async{
     if (_formKey.currentState!.validate()) {
-           final request={"name":Name,"description":Description,"due_date":date};
-           await todoService.AddTodo(request);
-           Navigator.of(context).pop("test");
+           if(widget.IsUpdated){
+            final request={"name":Name,"description":Description,"due_date":date.toString()};
+             print(widget.todo!.id);
+              await todoService.UpdateTodo(request,widget.todo!.id);
+              Navigator.of(context).pop("test");
+           }else{
+            final request={"name":Name,"description":Description,"due_date":date};
+              await todoService.AddTodo(request);
+              Navigator.of(context).pop("test");
+           }
     }else{
       if(date==null){
         setState(() {
@@ -55,7 +76,7 @@ class _AddTodo extends State<AddTodo>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Add Todo",style: TextStyle(color: Colors.white),),backgroundColor: Colors.blue,),
+      appBar: AppBar(title:  Text(widget.IsUpdated ? "Update Todo" : "Add Todo",style: const TextStyle(color: Colors.white),),backgroundColor: Colors.blue,),
       body: 
          SingleChildScrollView(
           clipBehavior: Clip.antiAlias,
@@ -77,7 +98,7 @@ class _AddTodo extends State<AddTodo>{
                 ],
                  ),
                 child: Image.asset(
-                  "images/hero-img.png", 
+                  "images/${widget.IsUpdated ? 'update' : 'hero-img' }.png", 
                ),
               ),
               Padding(
@@ -88,6 +109,7 @@ class _AddTodo extends State<AddTodo>{
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      initialValue: Name,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       onChanged: (val){
                         setState(() {
@@ -113,6 +135,7 @@ class _AddTodo extends State<AddTodo>{
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       keyboardType: TextInputType.multiline,
+                      initialValue: Description,
                       validator: (val){
                         if(val==null || val.isEmpty){
                           return "Description Required";
@@ -147,7 +170,7 @@ class _AddTodo extends State<AddTodo>{
                 borderRadius: BorderRadius.circular(5),
                ),
                backgroundColor: const Color.fromARGB(255, 6, 43, 74)
-               ),child: loading ? const CircularProgressIndicator() : const Text("Add",style: TextStyle(color: Colors.white)))
+               ),child: loading ? const CircularProgressIndicator() :  Text("${widget.IsUpdated ? 'Update' : 'Add'}",style:const TextStyle(color: Colors.white)))
               ],
             ),
             ),
