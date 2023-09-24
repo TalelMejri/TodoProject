@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/Users/talel/Desktop/sts-4.5.1.RELEASE/
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jdk-18.0.2/lib/jrt-fs.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/Program Files/Java/jdk-18.0.2/lib/src.zip
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Users/talel/Desktop/sts-4.5.1.RELEASE/plugins/org.junit_4.12.0.v201504281640/
 org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/talel/.m2/repository
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
