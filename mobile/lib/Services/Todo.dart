@@ -26,7 +26,7 @@ class TodoService  {
   }
 }
 
-     Future<void> UpdatedSatatus(int id)async {
+  Future<void> UpdatedSatatus(int id)async {
   try{
     final response =  await http.put(Uri.parse('$url/updateStatus?id='+id.toString()));
     if(response.statusCode==200){
@@ -39,7 +39,7 @@ class TodoService  {
   }
 }
 
-     Future<void> deleteTodo(int id) async{
+Future<void> deleteTodo(int id) async{
   try{
     final response=await http.delete(Uri.parse('$url/DeleteTodo?id='+id.toString()));
     if(response.statusCode==200){
@@ -47,6 +47,22 @@ class TodoService  {
     }else{
       print(response.body);
     }
+  }catch(e){
+    print(e);
+  }
+}
+
+Future<void> AddTodo(request)async{
+  try{
+    final response=await http.post(Uri.parse('$url/AddTodo'),
+      body: jsonEncode(request),
+      headers: {'Content-Type': 'application/json'}
+   );
+   if(response.statusCode==200){
+      print("hdhdh");
+   }else{
+    print(response.body);
+   }
   }catch(e){
     print(e);
   }

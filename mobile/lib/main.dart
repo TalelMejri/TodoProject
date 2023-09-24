@@ -34,13 +34,17 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>   {
+
+
     late TodoService todoService=TodoService();
     List<Todo> todos=[];
     String search="";
   @override
   void initState() {
      super.initState();
+     
+
      fetchTodos(); 
   }
 
@@ -63,6 +67,7 @@ Future<void> deleteTodo(int id)async{
   if(res=="delete"){
     try{
       todoService.deleteTodo(id);
+      await fetchTodos();
     }catch(e){
       print(e);
     }
@@ -83,10 +88,24 @@ void updatedTodo(){
   print("update");
 }
    Future<void> fetchTodos() async {
+    todos=[];
      await todoService.getTodos(search);
      setState(() {
        todos = todoService.todos; 
      });
+   }
+
+   Future<void> SceerenAded()async{
+     String ? res= await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => AddTodo()), 
+          );
+          if(res=="test"){
+            await fetchTodos();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("TodoAdded"))
+            );
+          }
    }
 
   @override
@@ -95,11 +114,8 @@ void updatedTodo(){
       backgroundColor:const Color(0xFFEEEFF5),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         Navigator.push(
-                context,
-                MaterialPageRoute(builder: (BuildContext context) => AddTodo()), 
-          );
-  },
+            SceerenAded();
+           },
         backgroundColor: Colors.blue,child:const Icon(Icons.add,color: Colors.white,)),
       floatingActionButtonLocation:FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(title:const Center(child: Text("Todos App"),) ,backgroundColor:const Color(0xFFEEEFF5),elevation: 5,),
@@ -135,7 +151,7 @@ void updatedTodo(){
           ),
         ),
         const SizedBox(height: 20),
-        Expanded(child: 
+        Expanded( child: 
             todos.isNotEmpty ?    ListView.builder( shrinkWrap: true,itemCount: todos.length,itemBuilder: (context,index){
               final todo=todos[index];
               return tododiTem(todo: todo,deleteTodo: deleteTodo,updatedTodo: updatedTodo,check:check,InfoTodo:InfoTodo);

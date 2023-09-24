@@ -1,5 +1,6 @@
 package app.todo.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class TodoService {
 		}else {
 			Todo todo_new=new Todo();
 			todo_new.setName(todo.getName());
+			//LocalDate dueDate = LocalDate.parse(todo.getDue_date());
 			todo_new.setDue_Date(todo.getDue_date());
 			todo_new.setDescription(todo.getDescription());
 			todo_new.setIsdone(false);
@@ -46,6 +48,7 @@ public class TodoService {
 		Todo todo =todorep.GetTodo(id);
 		if(todo != null) {
 			todo.setDescription(todo_updated.getDescription());
+			//LocalDate dueDate = LocalDate.parse(todo_updated.getDue_date());
 			todo.setDue_Date(todo_updated.getDue_date());
 			todo.setName(todo_updated.getName());
 			todorep.save(todo);

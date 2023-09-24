@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mobile/Services/Todo.dart';
 
 class AddTodo extends StatefulWidget{
    const AddTodo({super.key});
@@ -13,6 +14,8 @@ class AddTodo extends StatefulWidget{
 class _AddTodo extends State<AddTodo>{
 
   final _formKey = GlobalKey<FormState>();
+
+  late TodoService todoService=TodoService();
 
   String Name="";
   String Description="";
@@ -29,17 +32,17 @@ class _AddTodo extends State<AddTodo>{
       ); 
     if(datepicker!=null){
       setState(() {
-        date=datepicker;
+        date=datepicker.toLocal().toString();
         errorDate="";
       });
     }
   }
 
-  void AddTodoFnction(){
+  void AddTodoFnction()async{
     if (_formKey.currentState!.validate()) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Processing Data')),
-      );
+           final request={"name":Name,"description":Description,"due_date":date};
+           await todoService.AddTodo(request);
+           Navigator.of(context).pop("test");
     }else{
       if(date==null){
         setState(() {
@@ -86,6 +89,11 @@ class _AddTodo extends State<AddTodo>{
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
+                      onChanged: (val){
+                        setState(() {
+                          Name=val;
+                        });
+                      },
                       validator: (val){
                         if(val==null || val.isEmpty){
                           return "Name Required";
@@ -112,6 +120,11 @@ class _AddTodo extends State<AddTodo>{
                         return null;
                       },
                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                        onChanged: (val){
+                        setState(() {
+                          Description=val;
+                        });
+                      },
                   decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
                     hintText: "Enter Description",

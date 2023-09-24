@@ -1,6 +1,7 @@
 package app.todo.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Todo  {
 	 
 	 private boolean isdone;
 	 
-	 private LocalDate due_Date;
+	 private LocalDateTime due_Date;
 	
 	 
 }
