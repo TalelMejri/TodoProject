@@ -2,7 +2,6 @@ package app.todo.entity;
 
 
 import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import antlr.collections.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +27,7 @@ public class User {
 	 @Column(length = 9999999)
 	 private String ImageProfile;
 	 
-	 
+	 @OneToMany(mappedBy = "Todo")
+	 List<Todo> todos;
 
 }
