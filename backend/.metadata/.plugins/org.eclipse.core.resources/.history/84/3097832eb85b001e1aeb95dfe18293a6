@@ -1,0 +1,24 @@
+package app.todo.jwt;
+
+import java.io.Serializable;
+
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+
+@Service
+public class jwtUtil implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	 String secret="Bizo";
+	
+	 public Claims getAllClaimsFromToken(String token) {
+		 return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
+	  }
+
+}

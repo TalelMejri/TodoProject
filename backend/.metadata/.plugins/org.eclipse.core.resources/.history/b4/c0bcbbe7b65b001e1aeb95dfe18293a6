@@ -1,0 +1,26 @@
+package app.todo.jwt;
+
+import java.io.Serializable;
+
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+
+
+
+public class jwtUtil implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	static String secret;
+	
+	 public Claims getAllClaimsFromToken(String token) {
+		 jwtUtil.secret = "MyEduConnect";
+		 return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
+	  }
+
+}
