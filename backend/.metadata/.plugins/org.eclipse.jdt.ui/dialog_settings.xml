@@ -31,4 +31,11 @@
 		<item key="create_constructor" value="false"/>
 		<item key="create_unimplemented" value="true"/>
 	</section>
+	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
+		<item key="DIALOG_X_ORIGIN" value="205"/>
+		<item key="DIALOG_Y_ORIGIN" value="-27"/>
+		<item key="DIALOG_WIDTH" value="761"/>
+		<item key="DIALOG_HEIGHT" value="511"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
 </section>
