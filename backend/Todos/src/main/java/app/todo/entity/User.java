@@ -16,17 +16,14 @@ import lombok.NoArgsConstructor;
 
 @Entity@Data@AllArgsConstructor@NoArgsConstructor
 public class User {
+	
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.AUTO)
 	 private int id;
-	 
-	 String Nom;
-	 String Email;
-	 String Password;
+	 private String Nom;
+	 private String Email;
+	 private String Password;
 	 @Column(length = 9999999)
-	 String ImageProfile;
-	 
-	
-	 
-	 
+	 private String ImageProfile;
+
 }
