@@ -7,8 +7,11 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import app.todo.entity.User;
+
+
 
 public class MyUserDetails implements UserDetails {
 
@@ -17,11 +20,12 @@ public class MyUserDetails implements UserDetails {
 	public MyUserDetails(User user) {
 		this.user=user;
 	}
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authourities=new ArrayList<>();
 		try {
-			authourities.add(new SimpleGrantedAuthority(user.getEmail()));
+			authourities.add(new SimpleGrantedAuthority("Client"));
 		}catch (Exception e) {
 			System.out.println(e);
 		}
