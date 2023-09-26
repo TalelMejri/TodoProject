@@ -1,1 +1,36 @@
-<p>login-comp works!</p>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <form class="mt-5 p-5 shadow rounded" (ngSubmit)="Login()"  [formGroup]="loginForm" >
+       <h2 class="text-center">Login</h2>
+        <div class="alert alert-success" *ngIf="message!=''">
+             {{message}}
+        </div>
+        <div class="mb-2">
+           <mat-form-field class="example-form-field" style="width: 100%;">
+               <mat-label>Email</mat-label>
+               <input matInput type="text"  [formControl]="emailForm">
+               <button  matSuffix mat-icon-button >
+                  <mat-icon></mat-icon>
+               </button>
+               <mat-error *ngIf="emailForm.invalid">
+                    {{getEmailError()}}
+               </mat-error>
+             </mat-form-field>
+        </div>
+        <div class="mb-2">
+           <mat-form-field class="example-form-field" style="width: 100%;">
+               <mat-label>Mot De Pass</mat-label>
+               <input matInput [type]="!hidden ? 'text' : 'password'" [formControl]="passwordForm"  >
+               <button  matSuffix mat-icon-button (click)="hidden=!hidden">
+                  <mat-icon>{{ hidden ? 'visibility'  : 'visibility_off' }}</mat-icon>
+               </button>
+               <mat-error *ngIf="passwordForm.invalid">
+                {{getPasswordError()}}
+           </mat-error>
+             </mat-form-field>
+        </div>
+        <div class="text-center">
+           <button class="btn btn-success" type="submit">Login</button>
+        </div>
+    </form>
+</div>
