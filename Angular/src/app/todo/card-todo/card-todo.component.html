@@ -9,7 +9,7 @@
       <p><mat-checkbox (click)="changeStatus(item.id)" [(ngModel)]="item.isdone"  class="example-margin"></mat-checkbox></p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button [disabled]="item.isdone" [routerLink]="['update/'+item.id]" color="primary">Edit</button>
+      <button mat-button [disabled]="item.isdone" [routerLink]="['todo/update/'+item.id]" color="primary">Edit</button>
       <button mat-button  color="accent" (click)="DeleteTodo(item.id)">Delete</button>
     </mat-card-actions>
   </mat-card>

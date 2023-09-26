@@ -74,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/Auth/**").permitAll()
 				.antMatchers("/Todo/**").permitAll()
 				.anyRequest().authenticated().and()
+				
 			    .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 				http.addFilterBefore(JwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
@@ -82,18 +83,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		}
 	}
 	
-	   @Bean
-	    public CorsConfigurationSource corsConfigurationSource() {
-	        CorsConfiguration configuration = new CorsConfiguration();
-	        configuration.setAllowedOrigins(Arrays.asList("*"));
-	        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-	        configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
-
-	        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	        source.registerCorsConfiguration("/**", configuration);
-
-	        return  source;
-	    }
-	
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+	    CorsConfiguration configuration = new CorsConfiguration();
+	    configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // Allow requests from your Angular app's origin
+	    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+	    configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+	     configuration.setAllowCredentials(true); // For Cookie
+	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	    source.registerCorsConfiguration("/**", configuration);
+	    return source;
+	}
 	
 }

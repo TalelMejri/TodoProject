@@ -29,7 +29,7 @@ import io.jsonwebtoken.Claims;
 import net.minidev.json.JSONObject;
 
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/Auth")
 public class AuthController {
@@ -82,14 +82,13 @@ public class AuthController {
 		UserDetails user_det=userDetImp.loadUserByUsername(user.getEmail());
 		String token=jwtUtil.generateToken(user_det);
 		JSONObject data=new JSONObject();
-		data.appendField("UserDetails",user_det);
-		data.appendField("User",authUser);
-		data.appendField("token",token);
-		
+		data.appendField("user",authUser);
 		/* add Cookie */
 		Cookie cookie=new Cookie("Token",token);
-		cookie.setHttpOnly(false);
-		cookie.setSecure(false);
+		cookie.setHttpOnly(true);
+		cookie.setPath("/");
+		cookie.setSecure(true);
+		cookie.setMaxAge(-1);
 		response.addCookie(cookie); 
 		return  ResponseEntity.ok().body(data);
 	}

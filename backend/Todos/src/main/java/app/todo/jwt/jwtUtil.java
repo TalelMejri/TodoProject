@@ -21,7 +21,7 @@ public class jwtUtil implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final int EXPIRATION_TIME = 5 * 60 * 60;
+	private static final int EXPIRATION_TIME = 24 * 60 * 6000;
 	 String secret="Bizo";
 	
 	 public Claims getAllClaimsFromToken(String token) {
@@ -34,15 +34,18 @@ public class jwtUtil implements Serializable {
 	  }
 	 
 	
-	 private String doGenerateToken(Map<String, Object> claims, String subject) {
-		  String encodedString = Base64.getEncoder().encodeToString(secret.getBytes());
-		    return Jwts.builder()
-		        .setClaims(claims)
-		        .setSubject(subject)
-		        .setIssuedAt(new Date(System.currentTimeMillis()))
-		        .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-		        .signWith(SignatureAlgorithm.HS512, encodedString).compact();
-		}
+	   private String doGenerateToken(Map<String, Object> claims, String subject) {
+		      
+	        String encodedString = Base64.getEncoder().encodeToString(secret.getBytes());
+	        return Jwts.builder()
+	                .setClaims(claims)
+	                .setSubject(subject)
+	                .setIssuedAt(new Date(System.currentTimeMillis()))
+	                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME * 555555555))
+	                .signWith(SignatureAlgorithm.HS512, encodedString).compact();
+
+	    }
+
 
 	 
 	  public String generateToken(UserDetails userDetails) {
@@ -54,14 +57,8 @@ public class jwtUtil implements Serializable {
 	        return getClaimFromToken(token, Claims::getSubject);
 	   }
 	  
-	  public Date getExpirationDateFromToken(String token) {
-	        return (Date) getClaimFromToken(token,  Claims::getExpiration);
-	  }
-	  
-	  private Boolean isTokenExpired(String token) {
-	        final Date expiration = getExpirationDateFromToken(token);
-	        return expiration.before(new Date());
-	  }
+	
+	
 	  // validate token
 	  public Boolean validateToken(String token, UserDetails userDetails) {
 	        final String username = getUsernameFromToken(token);

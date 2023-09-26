@@ -18,6 +18,8 @@ public interface TodoRepo extends JpaRepository<Todo, Integer> {
 	@Query(value = "Select * from todo where name=:name",nativeQuery = true)
 	Todo GetNameTodo(String name);
 	
+	@Query(value = "Select * from todo where id_user=:id",nativeQuery = true)
+	List<Todo> AllTodos(int id);
 	
 	List<Todo> findByName(String name);
 	

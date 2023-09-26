@@ -1,5 +1,11 @@
 <div class="container">
-    <h1 class="text-center py-5">Todo</h1>
+  <button mat-button [matMenuTriggerFor]="menu"  >
+    <img [src]="user['imageProfile']" width="100px" height="100px">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>{{user['nom']}}</button>
+    <button mat-menu-item (click)="Logout()">Logout</button>
+  </mat-menu>
     <div class="d-flex justify-content-center gap-5 mb-5">
       <button mat-fab color="accent" [routerLink]="['Add']">
         <mat-icon>add</mat-icon>

@@ -3,6 +3,7 @@ package app.todo.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,12 +35,12 @@ public class TodoController {
 	TodoRepo Todorepo;
 	
 	@GetMapping("GetTodos")
-	public ResponseEntity<?> getTodos(@RequestParam(name="search",defaultValue = "") String search){
+	public ResponseEntity<?> getTodos(@RequestParam(name="search",defaultValue = "") String search,HttpServletRequest request){
 		List<Todo> todos=null;
 		if(!search.isEmpty()) {
 			todos=Todorepo.findByName(search);
 		}else {
-			todos=TodoServ.getTodo();
+			todos=TodoServ.getTodo(request);
 		}
 		
 		return ResponseEntity.ok().body(todos);
@@ -55,17 +56,17 @@ public class TodoController {
 	public ResponseEntity<?> DeleteTodo(@RequestParam("id") int id){
 		try {
 			TodoServ.DeleteTodo(id);
-			return ResponseEntity.ok().body("Todo deletd");
-		}catch(Exception e) {
+			return  new ResponseEntity<String>("Todo Delted",HttpStatus.OK);
+			}catch(Exception e) {
 			return new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
 		}
 	}
 	
 	@PostMapping("AddTodo")
-	public ResponseEntity<?> AddTodo(@RequestBody todopayload todo){
+	public ResponseEntity<?> AddTodo(@RequestBody todopayload todo,HttpServletRequest request){
 		
 		try {
-			TodoServ.AddTodoServ(todo);
+			TodoServ.AddTodoServ(todo, request);
 			return ResponseEntity.ok().body("Todo Added");
 		}catch (Exception e) {
 			return new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);

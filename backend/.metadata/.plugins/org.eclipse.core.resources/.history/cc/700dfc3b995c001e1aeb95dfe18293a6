@@ -1,0 +1,12 @@
+package app.todo.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+   public User userAuth(HttpServletRequest request) {
+	   
+   }
+}

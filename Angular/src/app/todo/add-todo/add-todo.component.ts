@@ -28,9 +28,9 @@ export class AddTodoComponent {
   AddForm(){
     if(this.todoFrom.valid){
       this.TodoServiceService.AddTodoFn(this.todoFrom.value).subscribe((res)=>{
-        this.Router.navigate(['']);
+        this.Router.navigate(['todo']);
       },(error)=>{
-        this.Router.navigate(['']);
+        this.Router.navigate(['todo']);
       });
     }else{
       this.todoFrom.markAllAsTouched();

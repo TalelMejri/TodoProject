@@ -3,12 +3,15 @@ package app.todo.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import app.todo.Reposiory.TodoRepo;
 import app.todo.entity.Todo;
+import app.todo.entity.User;
 import app.todo.payload.todopayload;
 
 @Service
@@ -17,8 +20,12 @@ public class TodoService {
 	@Autowired
 	TodoRepo todorep;
 	
-	public List<Todo> getTodo(){
-	     return todorep.findAll();
+	@Autowired
+	UserService UserService;
+	
+	public List<Todo> getTodo(HttpServletRequest request){
+			int id=UserService.userAuth(request).getId();
+			return todorep.AllTodos(id);
 	}
 	
 	public void DeleteTodo(int id) throws Exception {
@@ -30,7 +37,8 @@ public class TodoService {
 		}
 	}
 	
-	public void AddTodoServ(todopayload todo)throws Exception {
+	public void AddTodoServ(todopayload todo,HttpServletRequest request)throws Exception {
+		User user=UserService.userAuth(request);
 		if(todorep.GetNameTodo(todo.getName()) != null) {
 			 throw new Exception("Todo Already Exist");
 		}else {
@@ -39,6 +47,7 @@ public class TodoService {
 			//LocalDate dueDate = LocalDate.parse(todo.getDue_date());
 			todo_new.setDue_Date(todo.getDue_date());
 			todo_new.setDescription(todo.getDescription());
+			todo_new.setUser(user);
 			todo_new.setIsdone(false);
 			todorep.save(todo_new);
 		}
