@@ -1,0 +1,54 @@
+
+     <div class="container d-flex justify-content-center align-items-center mt-5">
+                 <form class="mt-5 p-5 shadow rounded" (ngSubmit)="SignUp()" [formGroup]="loginForm">
+                    <h2 class="text-center">Signup</h2>
+                     <div class="mb-2">
+                        <mat-form-field class="example-form-field" style="width: 100%;">
+                            <mat-label>Nom</mat-label>
+                            <input matInput type="text"  [formControl]="nomForm">
+                            <button  matSuffix mat-icon-button >
+                               <mat-icon></mat-icon>
+                            </button>
+                            <mat-error *ngIf="nomForm.hasError('required');">
+                               Nom Required
+                            </mat-error>
+                          </mat-form-field>
+                     </div>
+                     <div class="mb-2">
+                        <mat-form-field class="example-form-field" style="width: 100%;">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" [formControl]="emailForm">
+                            <button  matSuffix mat-icon-button >
+                               <mat-icon></mat-icon>
+                            </button>
+                            <mat-error *ngIf="emailForm.hasError('required');" >
+                                 Email Required
+                            </mat-error>
+                            <mat-error *ngIf="emailForm.hasError('email');" >
+                                Email Invalid
+                           </mat-error>
+                          </mat-form-field>
+                     </div>
+                     <div class="mb-2">
+                        <mat-form-field class="example-form-field" style="width: 100%;">
+                            <mat-label>Mot De Pass</mat-label>
+                            <input matInput [type]="!hidden ? 'text' : 'password'" [formControl]="passwordForm" >
+                            <button  matSuffix mat-icon-button (click)="hidden=!hidden">
+                               <mat-icon>{{ hidden ? 'visibility'  : 'visibility_off' }}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="passwordForm.hasError('required');">
+                                Password Required
+                            </mat-error>
+                          </mat-form-field>
+                     </div>
+                     <div class="mb-2">
+                        <input   accept="image/png,image/jpeg,image/jpg"  class="form-control" (change)="onFileChanged($event)" type="file">
+                        <span style="color: red;" *ngIf="imageError!=''">
+                            {{imageError}}
+                        </span>
+                    </div>
+                     <div class="text-center">
+                        <button class="btn btn-success" type="submit">Register</button>
+                     </div>
+                 </form>
+     </div>

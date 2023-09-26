@@ -36,9 +36,9 @@ public class Todo  {
 	 
 	 private LocalDateTime due_Date;
 	 
-	 @ManyToOne( fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
-	 @JoinColumn(name="idUser")
-	 private User user;
+	 	@ManyToOne( fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+		@JoinColumn(name="idUser")
+		private User user;
 	
 	 
 }
