@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
+
 
 
 @Component({
@@ -11,8 +13,8 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class SignUpComppComponent {
 
-  constructor(private formBuilder:FormBuilder,private RegisterService:RegisterService,
-    private Router:Router){
+  constructor(private formBuilder:FormBuilder,private RegisterService:RegisterService,private MatSnackBar:MatSnackBar
+    ,private Router:Router){
     this.loginForm=this.formBuilder.group({
       nom:this.nomForm,
       email:this.emailForm,
@@ -40,6 +42,7 @@ export class SignUpComppComponent {
 
   loginForm:FormGroup;
   hidden=false;
+  SignUpError="";
   SignUp(){
     if(this.loginForm.valid){
       if(this.image.length==0){
@@ -54,7 +57,10 @@ export class SignUpComppComponent {
             console.log(res);
             this.Router.navigate(['login'],{queryParams:{message:"Register Successful"}});
         },(error)=>{
-           console.log(error);
+          this.SignUpError=error.error;
+          this.MatSnackBar.open(this.SignUpError,'Close',{
+            duration:2000
+          });
         });
     }else{
       this.loginForm.markAllAsTouched();
