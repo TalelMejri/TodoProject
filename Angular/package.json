@@ -20,8 +20,11 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@ngxs/storage-plugin": "^3.8.1",
+    "@ngxs/store": "^3.8.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.1",
+    "ngx-cookie-service": "^16.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
