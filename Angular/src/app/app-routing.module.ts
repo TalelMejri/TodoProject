@@ -6,12 +6,14 @@ import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginCompComponent } from './Auth/login-comp/login-comp.component';
 import { SignUpComppComponent } from './Auth/sign-up-compp/sign-up-compp.component';
+import { authgaurdGuard } from './guard/authgaurd.guard';
+
 
 const routes: Routes = [
   {path:"",component:LayoutComponent},
-  {path:"todo",component:TodoComponent},
-  {path:"Add",component:AddTodoComponent},
-  {path:"update/:id",component:UpdateTodoComponent},
+  {path:"todo",component:TodoComponent,canActivate:[authgaurdGuard]},
+  {path:"todo/Add",component:AddTodoComponent},
+  {path:"todo/update/:id",component:UpdateTodoComponent},
   {path:"login",component:LoginCompComponent},
   {path:"signup",component:SignUpComppComponent}
 ];

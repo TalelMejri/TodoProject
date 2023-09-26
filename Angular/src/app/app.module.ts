@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './todo/todo.component';
 import { MaterialModule } from './material/material.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ListTodoComponent } from './todo/list-todo/list-todo.component';
 import { CardTodoComponent } from './todo/card-todo/card-todo.component'
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
@@ -14,6 +14,11 @@ import { UpdateTodoComponent } from './todo/update-todo/update-todo.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginCompComponent } from './Auth/login-comp/login-comp.component';
 import { SignUpComppComponent } from './Auth/sign-up-compp/sign-up-compp.component';
+import { CookieService } from 'ngx-cookie-service';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { NgxsModule } from '@ngxs/store';
+import { AuthStore } from 'src/Store/actions';
+import { InterceptorGlobaleService } from './interceptor-globale.service';
 
 @NgModule({
   declarations: [
@@ -31,12 +36,20 @@ import { SignUpComppComponent } from './Auth/sign-up-compp/sign-up-compp.compone
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxsStoragePluginModule.forRoot(),
+    NgxsModule.forRoot([AuthStore]),
     MaterialModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:InterceptorGlobaleService,
+      multi:true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
