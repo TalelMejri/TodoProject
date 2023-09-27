@@ -39,6 +39,8 @@ dependencies:
   image_picker: ^1.0.4
   curved_navigation_bar: ^1.0.3
   http: ^1.1.0
+  flutter_secure_storage: ^9.0.0
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:
