@@ -8,7 +8,8 @@ import 'package:mobile/Model/User.dart';
 class AuthService {
 
   bool isAuth=false;
-  String url="http://10.0.2.2:8000/Auth";
+  String url="http://192.168.1.19:8000/Auth";  // device externe
+   //String url="http://10.0.2.2:8000/Auth"; // emulator
   String errorRegister="";
   String errorLogin="";
   String token="";

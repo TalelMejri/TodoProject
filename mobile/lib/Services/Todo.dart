@@ -10,7 +10,8 @@ class TodoService  {
      List<Todo> todos=[];
       late AuthService authService=AuthService();
     
-     String url="http://10.0.2.2:8000/Todo";
+      //String url="http://10.0.2.2:8000/Todo"; // for emulator
+     String url="http://192.168.1.19:8000/Todo"; // android externe
 
   Future<List<Todo>> getTodos(String search ) async {
       await authService.getUserFromStorage();
