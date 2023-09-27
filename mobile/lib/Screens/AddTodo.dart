@@ -33,10 +33,31 @@ class _AddTodo extends State<AddTodo>{
        lastDate: DateTime(2030)
       ); 
     if(datepicker!=null){
-      setState(() {
-        date=datepicker.toLocal().toString();
-        errorDate="";
-      });
+       if(DateTime.now().year <= datepicker.year){
+          if(DateTime.now().month <= datepicker.month){
+           if(DateTime.now().day <= datepicker.day){
+                  setState(() {
+                     date=datepicker.toLocal().toString();
+                     errorDate="";
+                });
+            }else{
+                setState(() {
+                     errorDate="Day Invalid";
+                });
+            return;
+          }
+          }else{
+              setState(() {
+                     errorDate="Month Invalid";
+                });
+            return;
+          }
+       }else{
+         setState(() {
+                     errorDate="Year Invalid";
+                });
+         return;
+       }
     }
   }
 
@@ -54,6 +75,12 @@ class _AddTodo extends State<AddTodo>{
 
   void AddTodoFnction()async{
     if (_formKey.currentState!.validate()) {
+       if(date==null){
+        setState(() {
+             errorDate="Date Required";
+        });
+        return;
+      }
            if(widget.IsUpdated){
             final request={"name":Name,"description":Description,"due_date":date.toString()};
              print(widget.todo!.id);
