@@ -1,7 +1,0 @@
-package app.todo.entity;
-
-import javax.persistence.Id;
-
-public class User {
-  @Id
-}
