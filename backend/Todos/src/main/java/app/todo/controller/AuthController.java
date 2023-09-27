@@ -85,9 +85,9 @@ public class AuthController {
 		data.appendField("user",authUser);
 		/* add Cookie */
 		Cookie cookie=new Cookie("Token",token);
-		cookie.setHttpOnly(true);
+		cookie.setHttpOnly(false);
 		cookie.setPath("/");
-		cookie.setSecure(true);
+		cookie.setSecure(false);
 		cookie.setMaxAge(-1);
 		response.addCookie(cookie); 
 		return  ResponseEntity.ok().body(data);
